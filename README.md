@@ -34,23 +34,43 @@ You should be comfortable selecting elements by tag name (eg. 'h1'), class name 
 
 4. Select the heading that says "Employment" and change it to something else. (hint: use a [descendant selector](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_selectors))
 
+  $('#employment .info-title').text('Money-Making')
+
 5. Panda the Bear is lying about their skills!  Take the "time travel" skill off the page to satisfy your personal sense of justice.  Use your googling and docs-skimming skillz to find a jQuery function that will allow you to remove elements from the DOM.  (hint: there are multiple ways of doing this, but the [parent()](http://api.jquery.com/parent/) function might be useful when it comes to selecting the right element)
+
+  $('div.bar-default #time-travel').parent().remove()
 
 6. Change the colour of the body. (hint: use [css()](http://api.jquery.com/css/))
 
+  $('body').css({backgroundColor: "black"})
+
 7. Change the colour used by the `highlight` class.
+
+  $('hightlight').css({backgroundColor: "black"})
 
 8. Change the font family of the h1 to 'monospace'.
 
+  $('h1').css("font-family", "monospace")
+
 9. Find a way to select the round icons in the sidebar and then change their colour.
+
+  $('a.action-icon-bg').css("background","black")
 
 10. Scroll down to the contact form.  Change the placeholder attribute of the name field to "identify yourself".
 
+  $('input.contact-info').attr('placeholder', 'identify yourself')
+
 11. Change the placeholder attribute of the message field to "state your business".
+
+  $('textarea').attr('placeholder', 'state your business')
 
 12. Give the name field [a "value" attribute](http://www.w3schools.com/tags/att_input_value.asp) of "your nemesis".
 
+  $('#name').attr('value', 'your nemesis')
+
 13. Change the value attribute of the email field to "koalathebear@gmail.com".
+
+  $('#email').attr('value', 'koalathebear@gmail.com')
 
 14. Change the value of the submit button on the contact form to "En garde!".
 
@@ -58,14 +78,23 @@ You should be comfortable selecting elements by tag name (eg. 'h1'), class name 
 
 15. We should stop Koala from sending an email to Panda that they might regret!  Find a way to disable the submit button (hint: familiarize yourself with the [disabled attribute](http://www.w3schools.com/tags/att_input_disabled.asp)).
 
+  $('#submit').attr('value', 'En garde!')
+
 16. We should help Panda protect their privacy by clearing their personal details from the sidebar.  You can use [empty()](https://api.jquery.com/empty/) to do this.
 
+  $('ul.bio-info').empty()
 
 ### Adding Elements to the DOM
 
 17. That drawing of Pikachu is really cute.  Let’s duplicate it using [clone()](https://api.jquery.com/clone/) and insert it at the bottom of the page using [insertAfter()](http://api.jquery.com/insertafter/) or [appendTo()](http://api.jquery.com/appendto/).
 
+  $('#right-image img').clone().appendTo('section')
+
 18. Wow, that was so satisfying I think we should do it 10 more times.  Use a `for` loop to help you do this.
+
+  for (var i=0;i<10;i++){
+    $('#right-image img').clone().appendTo('section');
+  };
 
 19. Let’s add a message about when the page was last updated.  We'll do this by appending a new `<li>` element to the `<ul>` in the sidebar (you might need to refresh the page to bring back the list items that we emptied out earlier).  
 
@@ -104,6 +133,11 @@ You should be comfortable selecting elements by tag name (eg. 'h1'), class name 
 
 \* you may notice that these functions are vanilla JavaScript and do not come from jQuery
 
+listItem.appendTo('ul.bio-info')
+var date = document.createTextNode(Date());
+var secondleftSpan = document.createElement('span');
+secondleftSpan.appendChild(date);
+listItem.appendChild(secondleftSpan)
 
 ## Stretch Exercise:
 Sometimes you'll run into situations where you have to get by without jQuery.  Try to find vanilla JavaScript alternatives to each of your answers that use jQuery functions.
