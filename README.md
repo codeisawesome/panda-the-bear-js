@@ -22,9 +22,15 @@ You should be comfortable selecting elements by tag name (eg. 'h1'), class name 
 
   PROTIP: use the inspector to learn the dimensions of the current profile image and use a placeholder image service such as [Place Kitten](https://placekitten.com/) to get an image of the same size.
 
+  $('img.profile-image').attr('src', 'https://media.giphy.com/media/zEO5eq3ZsEwbS/giphy.gif');
+
 2. Use the same approach to select the element that contains the photo of the sky and change the `src` attribute to another picture URL of your choosing.
 
+  $('img.photography').attr('height', 227).attr('width',325).attr('src', 'http://67.media.tumblr.com/97b6103a69046abb94521136880a240a/tumblr_o28ffe179C1tx6reqo2_r1_400.gif')
+
 3. Select the heading that says "Panda the Bear" and change it to your own name. (hint: use [text()](http://api.jquery.com/text/))
+
+  $('h1.highlight').text('Gifmania')
 
 4. Select the heading that says "Employment" and change it to something else. (hint: use a [descendant selector](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_selectors))
 
